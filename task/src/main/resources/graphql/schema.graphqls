@@ -1,0 +1,30 @@
+input TaskInput {
+    id: ID!
+    title: String
+    status: String
+    priority: String
+    dueDate: String
+    createdOn: String
+}
+
+type Task {
+    id: ID!
+    title: String
+    status: String
+    priority: String
+    dueDate: String
+    createdOn: String
+}
+
+type TaskMutation {
+    addNewTask(task: Task!) : Task!
+}
+
+type TaskQuery {
+    getAllTask : [Task]
+}
+
+schema {
+    query: TaskQuery
+    mutation: TaskMutation
+}
