@@ -14,7 +14,7 @@ public class Attachment {
     @Id
     @GeneratedValue(
             strategy = GenerationType.AUTO,
-            generator="native"
+            generator = "native"
     )
     @GenericGenerator(
             name = "native",

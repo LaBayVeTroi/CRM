@@ -17,7 +17,7 @@ type Task {
 }
 
 type TaskMutation {
-    addNewTask(task: Task!) : Task!
+    addNewTask : Task!
 }
 
 type TaskQuery {

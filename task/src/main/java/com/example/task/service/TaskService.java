@@ -12,11 +12,12 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
-    public Task addTask(Task task){
+    public Task addTask() {
+        Task task = new Task();
         return taskRepository.save(task);
     }
 
-    public List<Task> getAllTasks(){
+    public List<Task> getAllTasks() {
         return taskRepository.findAll();
     }
 }

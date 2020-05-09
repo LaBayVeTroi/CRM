@@ -7,6 +7,9 @@ import javax.persistence.*;
 import java.io.File;
 import java.sql.Date;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "user")

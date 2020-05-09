@@ -2,7 +2,8 @@ package com.example.account.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import com.example.account.model.AccountEmail;
 
 @Repository
-public interface AccountEmail extends JpaRepository<AccountEmail,Integer> {
+public interface AccountEmailRepository extends JpaRepository<AccountEmail, Integer> {
 }

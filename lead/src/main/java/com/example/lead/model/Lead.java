@@ -39,7 +39,7 @@ public class Lead {
     private String postcode;
     private String country;
     private String website;
-    @Column(length = 512,name = "`description`")
+    @Column(length = 512, name = "`description`")
     private String description;
     private String accountName;
     private Integer opportunityAmount;

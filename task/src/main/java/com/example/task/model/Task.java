@@ -11,7 +11,7 @@ import static graphql.language.TypeKind.Scalar;
 @Entity
 @Table(name = "task")
 @Data
-public class Task  {
+public class Task {
     @Id
     @GeneratedValue(
             strategy = GenerationType.AUTO,

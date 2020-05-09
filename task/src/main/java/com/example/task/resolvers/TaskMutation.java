@@ -11,7 +11,7 @@ public class TaskMutation implements GraphQLMutationResolver {
     @Autowired
     private TaskService taskService;
 
-    public Task addNewTask(Task task){
-        return taskService.addTask(task);
+    public Task addNewTask() {
+        return taskService.addTask();
     }
 }

@@ -13,24 +13,24 @@ public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
 
-    public Account saveAccount(Account account){
+    public Account saveAccount(Account account) {
         return accountRepository.save(account);
     }
 
-    public Account updateAccount(Account account){
+    public Account updateAccount(Account account) {
         return accountRepository.saveAndFlush(account);
     }
 
-    public void deleteAccount(Integer id){
+    public void deleteAccount(Integer id) {
         accountRepository.deleteById(id);
     }
 
-    public Account getAccountById(Integer id){
+    public Account getAccountById(Integer id) {
         Optional<Account> optionalAccount = accountRepository.findById(id);
         return optionalAccount.orElse(null);
     }
 
-    public List<Account> getAllAccounts(){
+    public List<Account> getAllAccounts() {
         return accountRepository.findAll();
     }
 }

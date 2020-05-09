@@ -16,7 +16,7 @@ services:
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: crm
     networks:
-       - crm
+      - crm
     image: mysql:8.0.20
     container_name: mysql
     volumes:
