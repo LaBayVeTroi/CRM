@@ -27,4 +27,9 @@ public class Google {
     private String dob;
     private String givenName;
     private String email;
+
+    @OneToOne
+    @JoinColumn(name = "user")
+    private User user;
+
 }

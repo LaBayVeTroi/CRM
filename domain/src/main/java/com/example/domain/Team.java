@@ -1,10 +1,12 @@
 package com.example.domain;
+
 import lombok.Data;
 import org.hibernate.annotations.GeneratorType;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,4 +27,12 @@ public class Team {
     @Column(length = 512)
     private String description;
     private Date createdOn;
+
+    @ManyToMany
+    @JoinTable(name = "team_user", joinColumns = @JoinColumn(name = "team_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> users;
+
+    @OneToOne
+    @JoinColumn(name = "created_by")
+    private User createdBy;
 }

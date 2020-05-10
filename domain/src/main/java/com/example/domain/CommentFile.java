@@ -23,4 +23,7 @@ public class CommentFile {
     private Integer id;
     private Date updatedOn;
     private File commentFile;
+    @ManyToOne
+    @JoinColumn(name = "comment")
+    private Comment comment;
 }

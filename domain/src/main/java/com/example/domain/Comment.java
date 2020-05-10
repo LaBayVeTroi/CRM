@@ -29,9 +29,30 @@ public class Comment {
     private String comment;
     private Date commentedOn;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "commented_by")
+    private User commented_by;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")
     private Account account;
+    @OneToOne
+    @JoinColumn(name = "`lead`")
+    private Lead lead;
+    @OneToOne
+    @JoinColumn(name = "opportunity")
+    private Opportunity opportunity;
+    @ManyToOne
+    @JoinColumn(name = "contact")
+    private Contact contact;
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private User user;
+    @OneToOne
+    @JoinColumn(name = "task")
+    private Task task;
+    @OneToOne
+    @JoinColumn(name = "invoice")
+    private Invoice invoice;
+    @OneToOne
+    @JoinColumn(name = "event")
+    private Event event;
 }

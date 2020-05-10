@@ -1,5 +1,6 @@
 package com.example.domain;
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -24,5 +25,36 @@ public class Attachment {
     private String fileName;
     private Date createdOn;
     private File attachment;
-}
 
+    @OneToOne
+    @JoinColumn(name = "created_by")
+    private User createdBy;
+
+    @OneToOne
+    @JoinColumn(name = "`lead`")
+    private Lead lead;
+
+    @OneToOne
+    @JoinColumn(name = "account")
+    private Account account;
+
+    @OneToOne
+    @JoinColumn(name = "contact")
+    private Contact contact;
+
+    @OneToOne
+    @JoinColumn(name = "opportunity")
+    private Opportunity opportunity;
+
+    @OneToOne
+    @JoinColumn(name = "task")
+    private Task task;
+
+    @OneToOne
+    @JoinColumn(name = "invoice")
+    private Invoice invoice;
+
+    @OneToOne
+    @JoinColumn(name = "event")
+    private Event event;
+}
