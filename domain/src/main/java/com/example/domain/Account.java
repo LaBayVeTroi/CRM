@@ -56,7 +56,7 @@ public class Account {
     private List<Contact> contacts;
 
     @ManyToMany
-    @JoinTable(name = "account_assigned_to", joinColumns = @JoinColumn(name = "account_id"), inverseJoinColumns = @JoinColumn(name = user_id))
+    @JoinTable(name = "account_assigned_to", joinColumns = @JoinColumn(name = "account_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> assignedTo;
 
     @ManyToMany
