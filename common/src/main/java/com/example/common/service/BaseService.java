@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BaseService<R extends JpaRepository<T, ID>, T, ID> {
+    <S extends T> S update(S entity);
+
     <S extends T> S save(S entity);
 
     <S extends T> List<S> saveAll(List<S> entities);

@@ -17,4 +17,13 @@ public class AddressQuery implements GraphQLQueryResolver {
     public List<Address> getAllAddresses() {
         return addressService.findAll();
     }
+
+    public Long countAddress() {
+        return addressService.count();
+    }
+
+    public Address findAddressById(Integer id) {
+        return addressService.findById(id).orElse(null);
+    }
+
 }

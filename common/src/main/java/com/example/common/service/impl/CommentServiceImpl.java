@@ -8,8 +8,4 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CommentServiceImpl extends BaseServiceImpl<CommentRepository, Comment, Integer> implements CommentService {
-
-    @Autowired
-    private CommentRepository commentRepository;
-
 }

@@ -8,6 +8,21 @@ type Address {
     country : String
 }
 
+type Comment{
+    id : ID!
+    comment : String
+    commented_on : Date
+    commented_by : User
+    account : Account
+    lead : Lead
+    opportunity : Opportunity
+    contact : Contact
+    user : User
+    task : Task
+    invoice : Invoice
+    event : Event
+}
+
 input AddressInput {
     addressLine : String
     street: String
@@ -19,11 +34,16 @@ input AddressInput {
 
 type AddressMutation {
     createAddress(addressInput : AddressInput) : Address!
+    saveAllAddresses(addressInputs: [AddressInput]): [Address]
+    deleteAddressById(id : Int) : String
 }
 
 type AddressQuery {
     getAllAddresses: [Address]
+    countAddress: Int
+    findAddressById(id : Int): Address
 }
+
 
 schema {
     mutation: AddressMutation

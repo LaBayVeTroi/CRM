@@ -69,4 +69,8 @@ public abstract class BaseServiceImpl<R extends JpaRepository<T, ID>, T, ID> {
         return ownRepository.findAll(pageable);
     }
 
+    public <S extends T> S update(S entity) {
+        return ownRepository.saveAndFlush(entity);
+    }
+
 }
