@@ -22,7 +22,7 @@ import java.util.HashMap;
 public class PersistenceConfig {
     @Configuration
     @Profile("default")
-    @PropertySource("classpath:application.properties")
+    @PropertySource("classpath:persistence.properties")
     static class Defaults {
     }
 
@@ -66,7 +66,7 @@ public class PersistenceConfig {
     private HashMap<String, String> initializePersistenceProperties() {
         HashMap<String, String> properties = new HashMap<>();
         properties.put("spring.jpa.hibernate.ddl-auto", env.getProperty("spring.jpa.hibernate.ddl-auto"));
-        properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+//        properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 
         return properties;
     }

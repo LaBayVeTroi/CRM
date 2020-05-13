@@ -1,5 +1,9 @@
 package com.example.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -7,6 +11,9 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "google")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Google {
     @Id
     @GeneratedValue(
@@ -19,8 +26,11 @@ public class Google {
     )
     @Column(name = "id")
     private Integer id;
+    @Column(name = "google_url")
     private String googleUrl;
+    @Column(name = "verified_mail")
     private String verifiedMail;
+    @Column(name = "family_name")
     private String familyName;
     private String name;
     private String gender;

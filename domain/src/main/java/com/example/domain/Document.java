@@ -1,6 +1,9 @@
 package com.example.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -11,6 +14,9 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "document")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Document {
     @Id
     @GeneratedValue(
@@ -24,7 +30,9 @@ public class Document {
     @Column(name = "id")
     private Integer id;
     private String title;
+    @Column(name = "document_file")
     private File documentFile;
+    @Column(name = "created_on")
     private Date createdOn;
     private String status;
 

@@ -1,7 +1,7 @@
 package com.example.task.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.example.task.model.Task;
+import com.example.domain.Task;
 import com.example.task.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

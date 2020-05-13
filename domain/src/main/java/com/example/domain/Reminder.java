@@ -1,5 +1,9 @@
 package com.example.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -7,6 +11,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "reminder")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Reminder {
     @Id
     @GeneratedValue(
@@ -19,6 +26,8 @@ public class Reminder {
     )
     @Column(name = "id")
     private Integer id;
+    @Column(name = "reminder_type")
     private String reminderType;
+    @Column(name = "reminder_time")
     private Integer reminderTime;
 }

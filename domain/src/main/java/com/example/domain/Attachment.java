@@ -1,5 +1,9 @@
 package com.example.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -10,6 +14,9 @@ import java.sql.Date;
 @Data
 @Entity
 @Table(name = "attachment")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Attachment {
     @Id
     @GeneratedValue(
@@ -22,7 +29,9 @@ public class Attachment {
     )
     @Column(name = "id")
     private Integer id;
+    @Column(name = "file_name")
     private String fileName;
+    @Column(name = "created_on")
     private Date createdOn;
     private File attachment;
 

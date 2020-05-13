@@ -1,6 +1,9 @@
 package com.example.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GeneratorType;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,6 +14,9 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "team")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Team {
     @Id
     @GeneratedValue(
@@ -26,6 +32,7 @@ public class Team {
     private String name;
     @Column(length = 512)
     private String description;
+    @Column(name = "created_on")
     private Date createdOn;
 
     @ManyToMany

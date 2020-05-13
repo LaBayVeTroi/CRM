@@ -1,6 +1,9 @@
 package com.example.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -10,6 +13,9 @@ import java.util.List;
 @Entity
 @Table(name = "account")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account {
     @Id
     @GeneratedValue(
@@ -26,17 +32,26 @@ public class Account {
     private String email;
     private String phone;
     private String industry;
+    @Column(name = "billing_address_line")
     private String billingAddressLine;
+    @Column(name = "billing_street")
     private String billingStreet;
+    @Column(name = "billing_city")
     private String billingCity;
+    @Column(name = "billing_state")
     private String billingState;
+    @Column(name = "billing_postcode")
     private String billingPostcode;
+    @Column(name = "billing_country")
     private String billingCountry;
     private String website;
     private String description;
+    @Column(name = "created_on")
     private Date createdOn;
+    @Column(name = "in_active")
     private boolean inActive;
     private String status;
+    @Column(name = "contact_name")
     private String contactName;
 
     @OneToOne

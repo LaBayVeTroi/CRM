@@ -1,6 +1,9 @@
 package com.example.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -8,6 +11,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "account_email_log")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AccountEmailLog {
     @Id
     @GeneratedValue(
@@ -20,5 +26,6 @@ public class AccountEmailLog {
     )
     @Column(name = "id")
     private Integer id;
+    @Column(name = "is_sent")
     private boolean isSent;
 }

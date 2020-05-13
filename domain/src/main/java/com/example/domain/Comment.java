@@ -1,4 +1,5 @@
 package com.example.domain;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,10 +28,11 @@ public class Comment {
     @Column(name = "id")
     private Integer id;
     private String comment;
+    @Column(name = "commented_on")
     private Date commentedOn;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "commented_by")
-    private User commented_by;
+    private User commentedBy;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")
     private Account account;

@@ -1,0 +1,31 @@
+type Address {
+    id : ID!
+    addressLine : String
+    street: String
+    city : String
+    state : String
+    postcode : String
+    country : String
+}
+
+input AddressInput {
+    addressLine : String
+    street: String
+    city : String
+    state : String
+    postcode : String
+    country : String
+}
+
+type AddressMutation {
+    createAddress(addressInput : AddressInput) : Address!
+}
+
+type AddressQuery {
+    getAllAddresses: [Address]
+}
+
+schema {
+    mutation: AddressMutation
+    query: AddressQuery
+}

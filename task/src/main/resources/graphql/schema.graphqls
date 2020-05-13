@@ -23,8 +23,8 @@ type TaskMutation {
 type TaskQuery {
     getAllTask : [Task]
 }
-
-schema {
-    query: TaskQuery
-    mutation: TaskMutation
-}
+#
+#schema {
+#    query: TaskQuery
+#    mutation: TaskMutation
+#}
