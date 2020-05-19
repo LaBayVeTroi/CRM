@@ -9,13 +9,31 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>domain</artifactId>
+    <artifactId>email</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.teko</groupId>
+            <artifactId>repository</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.teko</groupId>
+            <artifactId>domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.teko</groupId>
             <artifactId>proto</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.saturnism.spring-boot-starter-grpc</groupId>
+            <artifactId>grpc-server-autoconfigurer</artifactId>
+            <version>master-4c32842c8e-1</version>
         </dependency>
     </dependencies>
 

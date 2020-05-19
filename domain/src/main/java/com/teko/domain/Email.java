@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.EmailTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,5 +39,19 @@ public class Email {
     private Date sendTime;
     private String status;
     private boolean important;
+
+    public static Email fromProto(EmailTranfer emailTranfer) {
+        return Email.builder()
+                .id(emailTranfer.getId())
+                .fromEmail(emailTranfer.getFromEmail())
+                .toEmail(emailTranfer.getToEmail())
+                .subject(emailTranfer.getSubject())
+                .message(emailTranfer.getMessage())
+                .file(emailTranfer.getFile())
+                .sendTime(new Date(emailTranfer.getSendTime()))
+                .status(emailTranfer.getStatus())
+                .important(emailTranfer.getImportant())
+                .build();
+    }
 
 }

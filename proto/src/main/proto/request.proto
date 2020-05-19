@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.teko.proto;
+
+import "domain.proto";
+
+option java_multiple_files = true;
+
+message AddEmailRequest{
+  EmailTranfer email = 1;
+}
+
+message GetAllEmailRequest {
+}
+
+message GetEmailByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateEmailRequest {
+  EmailTranfer email = 1;
+}
+
+message DeleteEmailByIdRequest {
+  int32 id = 1;
+}

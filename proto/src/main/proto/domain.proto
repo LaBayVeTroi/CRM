@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.teko.proto;
+
+option java_multiple_files = true;
+
+message EmailTranfer{
+  int32  id = 1;
+  string fromEmail = 2 ;
+  string toEmail = 3 ;
+  string subject = 4;
+  string message = 5;
+  string file = 6;
+  int64 sendTime = 7;
+  string status = 8;
+  bool important = 9;
+}

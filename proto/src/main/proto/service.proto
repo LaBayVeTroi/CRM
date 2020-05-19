@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.teko.proto;
+
+option java_multiple_files = true;
+
+import "domain.proto";
+import "request.proto";
+
+
+service EmailService{
+  rpc getAll(GetAllEmailRequest) returns (stream EmailTranfer);
+  rpc getById(GetEmailByIdRequest) returns (EmailTranfer);
+  rpc deleteById(DeleteEmailByIdRequest) returns (EmailTranfer);
+  rpc save(AddEmailRequest) returns (EmailTranfer);
+  rpc update(UpdateEmailRequest) returns (EmailTranfer);
+}
