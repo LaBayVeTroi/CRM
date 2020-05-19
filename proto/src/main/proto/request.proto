@@ -24,3 +24,6 @@ message UpdateEmailRequest {
 message DeleteEmailByIdRequest {
   int32 id = 1;
 }
+
+message Empty {
+}
