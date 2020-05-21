@@ -39,7 +39,7 @@ public class Email {
 
     public EmailTranfer toProto() {
         return EmailTranfer.newBuilder()
-                .setId(this.id)
+                .setId(this.id == null ? 0 : this.id)
                 .setFromEmail(this.fromEmail)
                 .setToEmail(this.toEmail)
                 .setSubject(this.subject)

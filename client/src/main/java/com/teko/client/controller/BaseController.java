@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -37,7 +38,17 @@ public class BaseController {
 
     @RequestMapping("/add")
     public Email saveEmail() {
-        Email email = new Email();
+        Email email = Email.builder()
+                .id(0)
+                .file("file")
+                .fromEmail("fromEmail")
+                .important(true)
+                .message("message")
+                .sendTime(new Date(System.currentTimeMillis()))
+                .status("status")
+                .subject("subject")
+                .toEmail("toEmail")
+                .build();
         EmailTranfer emailTranfer = emailService.save(AddEmailRequest.newBuilder().setEmail(email.toProto()).build());
         return Email.fromProto(emailTranfer);
     }

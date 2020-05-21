@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.google.protobuf.GeneratedMessageV3;
 import com.teko.proto.EmailTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,6 +40,7 @@ public class Email {
     private Date sendTime;
     private String status;
     private boolean important;
+
 
     public static Email fromProto(EmailTranfer emailTranfer) {
         return Email.builder()

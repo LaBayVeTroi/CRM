@@ -15,3 +15,307 @@ message EmailTranfer{
   string status = 8;
   bool important = 9;
 }
+
+message AccountTranfer{
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string phone = 4;
+  string industry = 5;
+  string billingAddressLine = 6;
+  string billingStreet = 7;
+  string billingCity = 8;
+  string billingState = 9;
+  string billingPostcode = 10;
+  string billingCountry = 11;
+  string website = 12;
+  string description = 13;
+  int64 createdOn = 14;
+  bool inActive = 15;
+  string status = 16;
+  string contactName = 17;
+  UserTranfer createdBy = 18;
+  TagTranfer tag = 19;
+  LeadTranfer lead = 20 ;
+  repeated ContactTranfer contacts = 21;
+  repeated UserTranfer assignedTo = 22;
+  repeated TeamTranfer teams = 23;
+}
+
+message AccountEmailTranfer {
+  int32 id = 1;
+  string messageSubject = 2;
+  string messageBody = 3;
+  string timeZone = 4;
+  int64 scheduledLater = 5;
+  int64 createdOn = 6;
+  string fromEmail = 7;
+  string renderedMessageBody = 8;
+}
+
+message AccountEmailLogTranfer {
+  int32 id = 1;
+  bool isSent = 2;
+}
+
+message AddressTranfer {
+  int32 id = 1;
+  string addressLine = 2 ;
+  string street = 3 ;
+  string city = 4 ;
+  string state = 5 ;
+  string postcode = 6 ;
+  string country = 7 ;
+}
+
+
+message APISettingTranfer {
+  int32 id = 1;
+  string title = 3;
+  string apiKey = 4;
+  string website = 5;
+  int64 createdOn = 6;
+  repeated UserTranfer users = 7;
+  UserTranfer createdBy = 8;
+  repeated TagTranfer tags = 9;
+}
+
+message AttachmentTranfer {
+  int32 id = 1;
+  string fileName = 2;
+  int64 createdOn = 3;
+  string attachment = 4;
+  UserTranfer createdBy = 5;
+  LeadTranfer lead = 6;
+  AccountTranfer account = 7;
+  ContactTranfer contact = 8;
+  OpportunityTranfer oppotunity = 9;
+  TaskTranfer task = 10;
+  InvoiceTranfer invoice = 11;
+  EventTranfer event = 12;
+}
+
+message CommentTranfer {
+  int32 id = 1;
+  int64 commentedOn = 2;
+  UserTranfer commentedBy = 3;
+  AccountTranfer accoount = 4;
+  LeadTranfer lead = 5;
+  OpportunityTranfer opportunity = 6;
+  ContactTranfer contact = 7;
+  UserTranfer user = 8;
+  TaskTranfer task = 9;
+  InvoiceTranfer invoice = 10;
+  EventTranfer event = 11;
+}
+
+message CommentFileTranfer {
+  int32 id = 1;
+  int64 updatedOn = 2;
+  string commentFile = 3;
+  CommentTranfer comment = 4;
+}
+
+message ContactTranfer {
+  int32 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string description = 5;
+  int64 createdOn = 6;
+  bool isActive = 7;
+  string phone = 8;
+  AddressTranfer address = 9;
+  repeated AddressTranfer addresses = 10;
+  UserTranfer createdBy = 11;
+  repeated TeamTranfer teams = 12;
+}
+
+message DocumentTranfer {
+  int32 id = 1;
+  string title = 2;
+  string documentFile = 3;
+  int64 createdOn = 4;
+  string status = 5;
+  UserTranfer createdBy = 6;
+  repeated UserTranfer sharedTo = 7;
+  repeated TeamTranfer teams = 8;
+}
+
+message EventTranfer {
+  int32 id = 1;
+  string name = 2;
+  string eventType = 3;
+  string status = 4;
+  int64 startDate = 5;
+  int64 startTime = 6;
+  int64 endDate = 7;
+  int64 endTime = 8;
+  string description = 9;
+  int64 createdOn = 10;
+  bool isActive = 11;
+  bool disabled = 12;
+  int64 dateOfMeeting = 13;
+}
+
+message EventPlanTranfer {
+  int32 id = 1;
+  int32 limit = 2;
+  string name = 3;
+  string evenType = 4;
+  int32 objectId = 5;
+  string status = 6;
+  string direction = 7;
+  int64 startDate = 8;
+  int64 closeDate = 9;
+  int32 duration = 10;
+  string priority = 11;
+  int64 updateOn = 12;
+  int64 createdOn = 13;
+  string description = 14;
+  bool isActive = 15;
+}
+
+message GoogleTranfer {
+  int32 id = 1;
+  string googleUrl = 2;
+  string verifiedMail = 3;
+  string familyName = 4;
+  string name = 5;
+  string gender = 6;
+  string dob = 7;
+  string givenName = 8;
+  string email = 9;
+  UserTranfer user = 10;
+}
+
+message InvoiceTranfer {
+  int32 id = 1;
+  string invoiceTitle = 2 ;
+  string invoiceNumber = 3;
+  string name = 4;
+  string email = 5;
+  int32 rate = 6;
+  int32 quantity = 7;
+  int32 totalAmount = 8;
+  string currency = 9;
+  string phone = 10;
+  int64 createdOn = 11;
+  int64 amountDue = 12;
+  int64 amountPaid = 13;
+  bool isEmailSent = 14;
+  string status = 15;
+  string details = 16;
+  int64 dueDate = 17;
+}
+
+message InvoiceHistoryTranfer {
+  int32 id = 1;
+  string invoiceTitle = 2 ;
+  string invoiceNumber = 3;
+  string name = 4;
+  string email = 5;
+  int32 rate = 6;
+  int32 quantity = 7;
+  int32 totalAmount = 8;
+  string currency = 9;
+  string phone = 10;
+  int64 createdOn = 11;
+  int64 amountDue = 12;
+  int64 amountPaid = 13;
+  bool isEmailSent = 14;
+  string status = 15;
+  string details = 16;
+  int64 dueDate = 17;
+}
+
+message LeadTranfer {
+  int32 id = 1;
+  string title = 2;
+  string firstName = 3;
+  string lastName = 4;
+  string email = 5;
+  string phone = 6;
+  string status = 7;
+  string source = 8;
+  string addressLine = 9;
+  string street = 10;
+  string city = 11;
+  string state = 12;
+  string postcode = 13;
+  string country = 14;
+  string website = 15;
+  string description = 16;
+  string accountName = 17;
+  string opportunityAmount = 18;
+  int64 createdOn = 19;
+  bool isActive = 20;
+  string enqueryType = 21;
+  bool createdFromSite = 22;
+}
+
+message OpportunityTranfer {
+  int32 id = 1 ;
+  string name = 2;
+  string stage = 3;
+  string currency = 4;
+  string amount = 5;
+  string source = 6;
+  int32 probability = 7;
+  int64 closedOn = 8;
+  string description = 9;
+  int64 createdOn = 10;
+  bool inActive = 11;
+}
+
+message ProfileTranfer {
+  int32 id = 1;
+  string activationKey = 2;
+  int64 keyExpires = 3;
+}
+
+message ReminderTranfer {
+  int32 id = 1;
+  string reminderType = 2;
+  int32 reminderTime = 3;
+}
+
+message TagTranfer {
+  int32 id = 1;
+  string name = 2;
+  string slug = 3;
+}
+
+message TaskTranfer {
+  int32 id = 1;
+  string title = 2;
+  string status = 3;
+  string priority = 4;
+  int64 dueDate = 5;
+  int64 createdOn = 6;
+}
+
+message TeamTranfer {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  int64 createdOn = 4;
+  repeated UserTranfer users = 5;
+  UserTranfer createdBy = 6;
+}
+
+message UserTranfer {
+  int32 id = 1;
+  string username = 2;
+  string firstName = 3;
+  string lastName = 4;
+  string email = 5;
+  bool isActive = 6;
+  bool isAdmin = 7;
+  bool staff = 8;
+  bool dateJoined = 9;
+  string role = 10;
+  string profilePic = 11;
+  bool hasSalesAccess = 12;
+  bool hasMarketingAccess = 13;
+}

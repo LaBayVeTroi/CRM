@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  app:
+    image: crm
+    build: .
+    networks:
+      - crm
+    container_name: crm
+    volumes:
+      - ./:/opt/var/
+    depends_on:
+      - mysql
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: crm
+    networks:
+      - crm
+    image: mysql:8.0.20
+    container_name: mysql
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+
+networks:
+  crm:
+    driver: bridge
