@@ -1,4 +1,6 @@
 package com.teko.domain;
+
+import com.teko.proto.ProfileTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,4 +32,20 @@ public class Profile {
     private String activationKey;
     @Column(name = "key_expires")
     private Date keyExpires;
+
+    public static Profile fromProto(ProfileTranfer profileTranfer) {
+        return Profile.builder()
+                .id(profileTranfer.getId())
+                .activationKey(profileTranfer.getActivationKey())
+                .keyExpires(new Date(profileTranfer.getKeyExpires()))
+                .build();
+    }
+
+    public ProfileTranfer toProto() {
+        return ProfileTranfer.newBuilder()
+                .setId(this.id)
+                .setActivationKey(this.activationKey)
+                .setKeyExpires(this.keyExpires.getTime())
+                .build();
+    }
 }

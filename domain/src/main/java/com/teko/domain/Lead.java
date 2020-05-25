@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.LeadTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -62,4 +63,58 @@ public class Lead {
     private String enqueryType;
     @Column(name = "created_from_site")
     private boolean createdFromSite;
+
+    public static Lead fromProto(LeadTranfer leadTranfer){
+        return Lead.builder()
+                .id(leadTranfer.getId())
+                .title(leadTranfer.getTitle())
+                .firstName(leadTranfer.getFirstName())
+                .lastName(leadTranfer.getLastName())
+                .email(leadTranfer.getEmail())
+                .phone(leadTranfer.getPhone())
+                .status(leadTranfer.getStatus())
+                .source(leadTranfer.getSource())
+                .addressLine(leadTranfer.getAddressLine())
+                .street(leadTranfer.getStreet())
+                .city(leadTranfer.getCity())
+                .state(leadTranfer.getState())
+                .postcode(leadTranfer.getPostcode())
+                .country(leadTranfer.getCountry())
+                .website(leadTranfer.getWebsite())
+                .description(leadTranfer.getDescription())
+                .accountName(leadTranfer.getAccountName())
+                .opportunityAmount(leadTranfer.getOpportunityAmount())
+                .createdOn(new Date(leadTranfer.getCreatedOn()))
+                .isActive(leadTranfer.getIsActive())
+                .enqueryType(leadTranfer.getEnqueryType())
+                .createdFromSite(leadTranfer.getCreatedFromSite())
+                .build();
+    }
+
+    public LeadTranfer toProto() {
+        return LeadTranfer.newBuilder()
+                .setId(this.id)
+                .setTitle(this.title)
+                .setFirstName(this.firstName)
+                .setLastName(this.lastName)
+                .setEmail(this.email)
+                .setPhone(this.phone)
+                .setStatus(this.status)
+                .setSource(this.source)
+                .setAddressLine(this.addressLine)
+                .setStreet(this.street)
+                .setCity(this.city)
+                .setState(this.state)
+                .setPostcode(this.postcode)
+                .setCountry(this.country)
+                .setWebsite(this.website)
+                .setDescription(this.description)
+                .setAccountName(this.accountName)
+                .setOpportunityAmount(this.opportunityAmount)
+                .setCreatedOn(this.createdOn.getTime())
+                .setIsActive(this.isActive)
+                .setEnqueryType(this.enqueryType)
+                .setCreatedFromSite(this.createdFromSite)
+                .build();
+    }
 }

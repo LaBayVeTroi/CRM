@@ -11,5 +11,46 @@
 
     <artifactId>common</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.teko</groupId>
+            <artifactId>repository</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.teko</groupId>
+            <artifactId>domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.teko</groupId>
+            <artifactId>proto</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.saturnism.spring-boot-starter-grpc</groupId>
+            <artifactId>grpc-server-autoconfigurer</artifactId>
+            <version>master-4c32842c8e-1</version>
+        </dependency>
+
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

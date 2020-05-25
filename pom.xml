@@ -11,6 +11,14 @@
         <module>proto</module>
         <module>common</module>
         <module>client</module>
+        <module>contact</module>
+        <module>team</module>
+        <module>account</module>
+        <module>task</module>
+        <module>opportunity</module>
+        <module>lead</module>
+        <module>planner</module>
+        <module>invoice</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

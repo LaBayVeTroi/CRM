@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.ReminderTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,4 +31,20 @@ public class Reminder {
     private String reminderType;
     @Column(name = "reminder_time")
     private Integer reminderTime;
+
+    public static Reminder fromProto(ReminderTranfer reminderTranfer) {
+        return Reminder.builder()
+                .id(reminderTranfer.getId())
+                .reminderType(reminderTranfer.getReminderType())
+                .reminderTime(reminderTranfer.getReminderTime())
+                .build();
+    }
+
+    public ReminderTranfer toProto() {
+        return ReminderTranfer.newBuilder()
+                .setId(this.id)
+                .setReminderTime(this.reminderTime)
+                .setReminderType(this.reminderType)
+                .build();
+    }
 }

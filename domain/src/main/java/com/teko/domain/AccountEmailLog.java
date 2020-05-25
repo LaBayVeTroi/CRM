@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.AccountEmailLogTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,4 +29,18 @@ public class AccountEmailLog {
     private Integer id;
     @Column(name = "is_sent")
     private boolean isSent;
+
+    public static AccountEmailLog fromProto(AccountEmailLogTranfer accountEmailLogTranfer){
+        return AccountEmailLog.builder()
+                .id(accountEmailLogTranfer.getId())
+                .isSent(accountEmailLogTranfer.getIsSent())
+                .build();
+    }
+
+    public AccountEmailLogTranfer toProto(){
+        return AccountEmailLogTranfer.newBuilder()
+                .setId(this.id)
+                .setIsSent(this.isSent)
+                .build();
+    }
 }

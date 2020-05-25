@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.AccountTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,6 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -77,4 +79,80 @@ public class Account {
     @ManyToMany
     @JoinTable(name = "account_team", joinColumns = @JoinColumn(name = "account_id"), inverseJoinColumns = @JoinColumn(name = "team_id"))
     private List<Team> teams;
+
+    public static Account fromProto(AccountTranfer accountTranfer) {
+        List<User> users = new ArrayList<>();
+        accountTranfer.getAssignedToList().forEach(userTranfer -> {
+            users.add(User.fromProto(userTranfer));
+        });
+        List<Contact> contacts = new ArrayList<>();
+        accountTranfer.getContactsList().forEach(contactTranfer -> {
+            contacts.add(Contact.fromProto(contactTranfer));
+        });
+        List<Team> teams = new ArrayList<>();
+        accountTranfer.getTeamsList().forEach(teamTranfer -> {
+            teams.add(Team.fromProto(teamTranfer));
+        });
+        return Account.builder()
+                .id(accountTranfer.getId())
+                .name(accountTranfer.getName())
+                .email(accountTranfer.getEmail())
+                .phone(accountTranfer.getPhone())
+                .industry(accountTranfer.getIndustry())
+                .billingAddressLine(accountTranfer.getBillingAddressLine())
+                .billingCity(accountTranfer.getBillingCity())
+                .billingCountry(accountTranfer.getBillingCountry())
+                .billingPostcode(accountTranfer.getBillingPostcode())
+                .billingState(accountTranfer.getBillingState())
+                .billingStreet(accountTranfer.getBillingStreet())
+                .website(accountTranfer.getWebsite())
+                .description(accountTranfer.getDescription())
+                .createdOn(new Date(accountTranfer.getCreatedOn()))
+                .inActive(accountTranfer.getInActive())
+                .status(accountTranfer.getStatus())
+                .contactName(accountTranfer.getContactName())
+                .createdBy(User.fromProto(accountTranfer.getCreatedBy()))
+                .tag(Tag.fromProto(accountTranfer.getTag()))
+                .lead(Lead.fromProto(accountTranfer.getLead()))
+                .assignedTo(users)
+                .contacts(contacts)
+                .teams(teams)
+                .build();
+    }
+
+    public AccountTranfer toProto() {
+        AccountTranfer.Builder builder = AccountTranfer.newBuilder();
+        for (int i = 0; i < this.assignedTo.size(); i++) {
+            builder = builder.setAssignedTo(i, this.assignedTo.get(i).toProto());
+        }
+        for (int i = 0; i < this.contacts.size(); i++) {
+            builder = builder.setContacts(i, this.contacts.get(i).toProto());
+        }
+        for (int i = 0; i < this.teams.size(); i++) {
+            builder = builder.setTeams(i, this.teams.get(i).toProto());
+        }
+
+        builder = builder.setId(this.id)
+                .setName(this.name)
+                .setEmail(this.email)
+                .setPhone(this.phone)
+                .setIndustry(this.industry)
+                .setBillingAddressLine(this.billingAddressLine)
+                .setBillingCity(this.billingCity)
+                .setBillingCountry(this.billingCountry)
+                .setBillingPostcode(this.billingPostcode)
+                .setBillingState(this.billingState)
+                .setBillingStreet(this.billingStreet)
+                .setWebsite(this.website)
+                .setDescription(this.description)
+                .setCreatedOn(this.createdOn.getTime())
+                .setInActive(this.inActive)
+                .setStatus(this.status)
+                .setContactName(this.contactName)
+                .setCreatedBy(this.createdBy.toProto())
+                .setTag(this.tag.toProto())
+                .setLead(this.lead.toProto());
+        return builder.build();
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.EventTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -49,4 +50,39 @@ public class Event {
     @Column(name = "disabled")
     private boolean disabled;
     private Date dateOfMeeting;
+
+    public static Event fromProto(EventTranfer eventTranfer){
+        return Event.builder()
+                .id(eventTranfer.getId())
+                .name(eventTranfer.getName())
+                .eventType(eventTranfer.getEventType())
+                .status(eventTranfer.getStatus())
+                .startDate(new Date(eventTranfer.getStartDate()))
+                .endDate(new Date(eventTranfer.getEndDate()))
+                .endTime(new Date(eventTranfer.getEndTime()))
+                .description(eventTranfer.getDescription())
+                .createdOn(new Date(eventTranfer.getCreatedOn()))
+                .isActive(eventTranfer.getIsActive())
+                .disabled(eventTranfer.getDisabled())
+                .dateOfMeeting(new Date(eventTranfer.getDateOfMeeting()))
+                .build();
+
+    }
+
+    public EventTranfer toProto(){
+        return EventTranfer.newBuilder()
+                .setId(this.id)
+                .setName(this.name)
+                .setEventType(this.eventType)
+                .setStatus(this.status)
+                .setStartDate(this.startDate.getTime())
+                .setEndDate(this.endDate.getTime())
+                .setEndTime(this.endTime.getTime())
+                .setDescription(this.description)
+                .setCreatedOn(this.createdOn.getTime())
+                .setIsActive(this.isActive)
+                .setDisabled(this.disabled)
+                .setDateOfMeeting(this.dateOfMeeting.getTime())
+                .build();
+    }
 }

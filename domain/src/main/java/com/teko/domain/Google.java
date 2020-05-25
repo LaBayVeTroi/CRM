@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.GoogleTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -42,4 +43,33 @@ public class Google {
     @JoinColumn(name = "user")
     private User user;
 
+    public static Google fromProto(GoogleTranfer googleTranfer){
+        return Google.builder()
+                .id(googleTranfer.getId())
+                .googleUrl(googleTranfer.getGoogleUrl())
+                .verifiedMail(googleTranfer.getVerifiedMail())
+                .familyName(googleTranfer.getFamilyName())
+                .name(googleTranfer.getName())
+                .gender(googleTranfer.getGender())
+                .dob(googleTranfer.getDob())
+                .givenName(googleTranfer.getGivenName())
+                .email(googleTranfer.getEmail())
+                .user(User.fromProto(googleTranfer.getUser()))
+                .build();
+    }
+
+    public GoogleTranfer toProto(){
+        return GoogleTranfer.newBuilder()
+                .setId(this.id)
+                .setDob(this.dob)
+                .setGoogleUrl(this.googleUrl)
+                .setVerifiedMail(this.verifiedMail)
+                .setFamilyName(this.familyName)
+                .setGender(this.gender)
+                .setName(this.name)
+                .setGivenName(this.givenName)
+                .setEmail(this.email)
+                .setUser(this.user.toProto())
+                .build();
+    }
 }

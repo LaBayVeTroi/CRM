@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.UserTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,7 +39,7 @@ public class User {
     private boolean isActive;
     @Column(name = "is_admin")
     private boolean isAdmin;
-    private boolean staff;
+    private boolean isStaff;
     @Column(name = "date_joined")
     private Date dateJoined;
     @Column(name = "role")
@@ -49,4 +50,38 @@ public class User {
     private boolean hasSalesAccess;
     @Column(name = "has_marketing_access")
     private boolean hasMarketingAccess;
+
+    public static User fromProto(UserTranfer userTranfer) {
+        return User.builder()
+                .id(userTranfer.getId())
+                .username(userTranfer.getUsername())
+                .firstName(userTranfer.getFirstName())
+                .lastName(userTranfer.getLastName())
+                .email(userTranfer.getEmail())
+                .isActive(userTranfer.getIsActive())
+                .isAdmin(userTranfer.getIsAdmin())
+                .isStaff(userTranfer.getStaff())
+                .dateJoined(new Date(userTranfer.getDateJoined()))
+                .profilePic(new File(userTranfer.getProfilePic()))
+                .hasMarketingAccess(userTranfer.getHasMarketingAccess())
+                .hasSalesAccess(userTranfer.getHasSalesAccess())
+                .build();
+    }
+
+    public UserTranfer toProto(){
+        return UserTranfer.newBuilder()
+                .setId(this.id)
+                .setUsername(this.username)
+                .setFirstName(this.firstName)
+                .setLastName(this.lastName)
+                .setEmail(this.email)
+                .setIsActive(this.isActive)
+                .setIsAdmin(this.isAdmin)
+                .setStaff(this.isStaff)
+                .setDateJoined(this.dateJoined.getTime())
+                .setProfilePic(this.profilePic.getAbsolutePath())
+                .setHasMarketingAccess(this.hasMarketingAccess)
+                .setHasSalesAccess(this.hasSalesAccess)
+                .build();
+    }
 }

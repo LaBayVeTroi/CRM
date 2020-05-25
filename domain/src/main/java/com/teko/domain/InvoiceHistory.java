@@ -1,5 +1,7 @@
 package com.teko.domain;
 
+import com.teko.proto.InvoiceHistoryTranfer;
+import com.teko.proto.InvoiceHistoryTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -53,4 +55,41 @@ public class InvoiceHistory {
     private String details;
     @Column(name = "due_date")
     private Date dueDate;
+
+    public static InvoiceHistory fromProto(InvoiceHistoryTranfer invoiceHistoryTranfer){
+        return InvoiceHistory.builder()
+                .id(invoiceHistoryTranfer.getId())
+                .invoiceTitle(invoiceHistoryTranfer.getInvoiceTitle())
+                .invoiceNumber(invoiceHistoryTranfer.getInvoiceNumber())
+                .name(invoiceHistoryTranfer.getName())
+                .email(invoiceHistoryTranfer.getEmail())
+                .quantity(invoiceHistoryTranfer.getQuantity())
+                .createdOn(new Date(invoiceHistoryTranfer.getCreatedOn()))
+                .amountDue(new Date(invoiceHistoryTranfer.getAmountDue()))
+                .amountPaid(new Date(invoiceHistoryTranfer.getAmountPaid()))
+                .isEmailSent(invoiceHistoryTranfer.getIsEmailSent())
+                .status(invoiceHistoryTranfer.getStatus())
+                .details(invoiceHistoryTranfer.getDetails())
+                .dueDate(new Date(invoiceHistoryTranfer.getDueDate()))
+                .build();
+    }
+
+    public InvoiceHistoryTranfer toProto(){
+        return InvoiceHistoryTranfer.newBuilder()
+                .setId(this.id)
+                .setInvoiceTitle(this.invoiceTitle)
+                .setInvoiceNumber(this.invoiceNumber)
+                .setName(this.name)
+                .setEmail(this.email)
+                .setQuantity(this.quantity)
+                .setCreatedOn(this.createdOn.getTime())
+                .setAmountDue(this.amountDue.getTime())
+                .setAmountPaid(this.amountPaid.getTime())
+                .setIsEmailSent(this.isEmailSent)
+                .setStatus(this.status)
+                .setDetails(this.details)
+                .setDueDate(this.dueDate.getTime())
+                .build();
+    }
+
 }

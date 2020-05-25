@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @GrpcService
 public class EmailServiceImpl extends EmailServiceGrpc.EmailServiceImplBase implements EmailService {
+
     @Autowired
     private EmailRepository emailRepository;
 

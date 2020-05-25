@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.CommentFileTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,4 +36,22 @@ public class CommentFile {
     @ManyToOne
     @JoinColumn(name = "comment")
     private Comment comment;
+
+    public static CommentFile fromProto(CommentFileTranfer commentFileTranfer){
+        return CommentFile.builder()
+                .id(commentFileTranfer.getId())
+                .updatedOn(new Date(commentFileTranfer.getUpdatedOn()))
+                .commentFile(new File(commentFileTranfer.getCommentFile()))
+                .comment(Comment.fromProto(commentFileTranfer.getComment()))
+                .build();
+    }
+
+    public CommentFileTranfer toProto(){
+        return CommentFileTranfer.newBuilder()
+                .setId(this.id)
+                .setUpdatedOn(this.updatedOn.getTime())
+                .setCommentFile(this.commentFile.getAbsolutePath())
+                .setComment(this.comment.toProto())
+                .build();
+    }
 }

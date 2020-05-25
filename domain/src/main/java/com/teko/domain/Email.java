@@ -17,7 +17,7 @@ import java.sql.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Email {
+public class Email{
     @Id
     @GeneratedValue(
             strategy = GenerationType.AUTO,

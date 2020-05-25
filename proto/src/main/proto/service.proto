@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package com.teko.proto;
 
-import "google/protobuf/empty.proto";
-
 option java_multiple_files = true;
 
 import "domain.proto";
@@ -16,4 +14,188 @@ service EmailService{
   rpc deleteById(DeleteEmailByIdRequest) returns (Empty);
   rpc save(AddEmailRequest) returns (EmailTranfer);
   rpc update(UpdateEmailRequest) returns (EmailTranfer);
+}
+
+service AccountService{
+  rpc getAll(GetAllAccountRequest) returns (stream AccountTranfer);
+  rpc getById(GetAccountByIdRequest) returns (AccountTranfer);
+  rpc deleteById(DeleteAccountByIdRequest) returns (Empty);
+  rpc save(AddAccountRequest) returns (AccountTranfer);
+  rpc update(UpdateAccountRequest) returns (AccountTranfer);
+}
+
+service AccountEmailService{
+  rpc getAll(GetAllAccountEmailRequest) returns (stream AccountEmailTranfer);
+  rpc getById(GetAccountEmailByIdRequest) returns (AccountEmailTranfer);
+  rpc deleteById(DeleteAccountEmailByIdRequest) returns (Empty);
+  rpc save(AddAccountEmailRequest) returns (AccountEmailTranfer);
+  rpc update(UpdateAccountEmailRequest) returns (AccountEmailTranfer);
+}
+
+service AccountEmailLogService{
+  rpc getAll(GetAllAccountEmailLogRequest) returns (stream AccountEmailLogTranfer);
+  rpc getById(GetAccountEmailLogByIdRequest) returns (AccountEmailLogTranfer);
+  rpc deleteById(DeleteAccountEmailLogByIdRequest) returns (Empty);
+  rpc save(AddAccountEmailLogRequest) returns (AccountEmailLogTranfer);
+  rpc update(UpdateAccountEmailLogRequest) returns (AccountEmailLogTranfer);
+}
+
+service AddressService{
+  rpc getAll(GetAllAddressRequest) returns (stream AddressTranfer);
+  rpc getById(GetAddressByIdRequest) returns (AddressTranfer);
+  rpc deleteById(DeleteAddressByIdRequest) returns (Empty);
+  rpc save(AddAddressRequest) returns (AddressTranfer);
+  rpc update(UpdateAddressRequest) returns (AddressTranfer);
+}
+
+service APISettingService{
+  rpc getAll(GetAllAPISettingRequest) returns (stream APISettingTranfer);
+  rpc getById(GetAPISettingByIdRequest) returns (APISettingTranfer);
+  rpc deleteById(DeleteAPISettingByIdRequest) returns (Empty);
+  rpc save(AddAPISettingRequest) returns (APISettingTranfer);
+  rpc update(UpdateAPISettingRequest) returns (APISettingTranfer);
+}
+
+service AttachmentService{
+  rpc getAll(GetAllAttachmentRequest) returns (stream AttachmentTranfer);
+  rpc getById(GetAttachmentByIdRequest) returns (AttachmentTranfer);
+  rpc deleteById(DeleteAttachmentByIdRequest) returns (Empty);
+  rpc save(AddAttachmentRequest) returns (AttachmentTranfer);
+  rpc update(UpdateAttachmentRequest) returns (AttachmentTranfer);
+}
+
+service CommentService{
+  rpc getAll(GetAllCommentRequest) returns (stream CommentTranfer);
+  rpc getById(GetCommentByIdRequest) returns (CommentTranfer);
+  rpc deleteById(DeleteCommentByIdRequest) returns (Empty);
+  rpc save(AddCommentRequest) returns (CommentTranfer);
+  rpc update(UpdateCommentRequest) returns (CommentTranfer);
+}
+
+service CommentFileService{
+  rpc getAll(GetAllCommentFileRequest) returns (stream CommentFileTranfer);
+  rpc getById(GetCommentFileByIdRequest) returns (CommentFileTranfer);
+  rpc deleteById(DeleteCommentFileByIdRequest) returns (Empty);
+  rpc save(AddCommentFileRequest) returns (CommentFileTranfer);
+  rpc update(UpdateCommentFileRequest) returns (CommentFileTranfer);
+}
+
+service ContactService{
+  rpc getAll(GetAllContactRequest) returns (stream ContactTranfer);
+  rpc getById(GetContactByIdRequest) returns (ContactTranfer);
+  rpc deleteById(DeleteContactByIdRequest) returns (Empty);
+  rpc save(AddContactRequest) returns (ContactTranfer);
+  rpc update(UpdateContactRequest) returns (ContactTranfer);
+}
+
+service DocumentService{
+  rpc getAll(GetAllDocumentRequest) returns (stream DocumentTranfer);
+  rpc getById(GetDocumentByIdRequest) returns (DocumentTranfer);
+  rpc deleteById(DeleteDocumentByIdRequest) returns (Empty);
+  rpc save(AddDocumentRequest) returns (DocumentTranfer);
+  rpc update(UpdateDocumentRequest) returns (DocumentTranfer);
+}
+
+service EventService{
+  rpc getAll(GetAllEventRequest) returns (stream EventTranfer);
+  rpc getById(GetEventByIdRequest) returns (EventTranfer);
+  rpc deleteById(DeleteEventByIdRequest) returns (Empty);
+  rpc save(AddEventRequest) returns (EventTranfer);
+  rpc update(UpdateEventRequest) returns (EventTranfer);
+}
+
+service EventPlanService{
+  rpc getAll(GetAllEventPlanRequest) returns (stream EventPlanTranfer);
+  rpc getById(GetEventPlanByIdRequest) returns (EventPlanTranfer);
+  rpc deleteById(DeleteEventPlanByIdRequest) returns (Empty);
+  rpc save(AddEventPlanRequest) returns (EventPlanTranfer);
+  rpc update(UpdateEventPlanRequest) returns (EventPlanTranfer);
+}
+
+service GoogleService{
+  rpc getAll(GetAllGoogleRequest) returns (stream GoogleTranfer);
+  rpc getById(GetGoogleByIdRequest) returns (GoogleTranfer);
+  rpc deleteById(DeleteGoogleByIdRequest) returns (Empty);
+  rpc save(AddGoogleRequest) returns (GoogleTranfer);
+  rpc update(UpdateGoogleRequest) returns (GoogleTranfer);
+}
+
+service InvoiceService{
+  rpc getAll(GetAllInvoiceRequest) returns (stream InvoiceTranfer);
+  rpc getById(GetInvoiceByIdRequest) returns (InvoiceTranfer);
+  rpc deleteById(DeleteInvoiceByIdRequest) returns (Empty);
+  rpc save(AddInvoiceRequest) returns (InvoiceTranfer);
+  rpc update(UpdateInvoiceRequest) returns (InvoiceTranfer);
+}
+
+service InvoiceHistoryService{
+  rpc getAll(GetAllInvoiceHistoryRequest) returns (stream InvoiceHistoryTranfer);
+  rpc getById(GetInvoiceHistoryByIdRequest) returns (InvoiceHistoryTranfer);
+  rpc deleteById(DeleteInvoiceHistoryByIdRequest) returns (Empty);
+  rpc save(AddInvoiceHistoryRequest) returns (InvoiceHistoryTranfer);
+  rpc update(UpdateInvoiceHistoryRequest) returns (InvoiceHistoryTranfer);
+}
+
+service LeadService{
+  rpc getAll(GetAllLeadRequest) returns (stream LeadTranfer);
+  rpc getById(GetLeadByIdRequest) returns (LeadTranfer);
+  rpc deleteById(DeleteLeadByIdRequest) returns (Empty);
+  rpc save(AddLeadRequest) returns (LeadTranfer);
+  rpc update(UpdateLeadRequest) returns (LeadTranfer);
+}
+
+service OpportunityService{
+  rpc getAll(GetAllOpportunityRequest) returns (stream OpportunityTranfer);
+  rpc getById(GetOpportunityByIdRequest) returns (OpportunityTranfer);
+  rpc deleteById(DeleteOpportunityByIdRequest) returns (Empty);
+  rpc save(AddOpportunityRequest) returns (OpportunityTranfer);
+  rpc update(UpdateOpportunityRequest) returns (OpportunityTranfer);
+}
+
+service ProfileService{
+  rpc getAll(GetAllProfileRequest) returns (stream ProfileTranfer);
+  rpc getById(GetProfileByIdRequest) returns (ProfileTranfer);
+  rpc deleteById(DeleteProfileByIdRequest) returns (Empty);
+  rpc save(AddProfileRequest) returns (ProfileTranfer);
+  rpc update(UpdateProfileRequest) returns (ProfileTranfer);
+}
+
+service ReminderService{
+  rpc getAll(GetAllReminderRequest) returns (stream ReminderTranfer);
+  rpc getById(GetReminderByIdRequest) returns (ReminderTranfer);
+  rpc deleteById(DeleteReminderByIdRequest) returns (Empty);
+  rpc save(AddReminderRequest) returns (ReminderTranfer);
+  rpc update(UpdateReminderRequest) returns (ReminderTranfer);
+}
+
+service TagService{
+  rpc getAll(GetAllTagRequest) returns (stream TagTranfer);
+  rpc getById(GetTagByIdRequest) returns (TagTranfer);
+  rpc deleteById(DeleteTagByIdRequest) returns (Empty);
+  rpc save(AddTagRequest) returns (TagTranfer);
+  rpc update(UpdateTagRequest) returns (TagTranfer);
+}
+
+service TaskService{
+  rpc getAll(GetAllTaskRequest) returns (stream TaskTranfer);
+  rpc getById(GetTaskByIdRequest) returns (TaskTranfer);
+  rpc deleteById(DeleteTaskByIdRequest) returns (Empty);
+  rpc save(AddTaskRequest) returns (TaskTranfer);
+  rpc update(UpdateTaskRequest) returns (TaskTranfer);
+}
+
+service TeamService{
+  rpc getAll(GetAllTeamRequest) returns (stream TeamTranfer);
+  rpc getById(GetTeamByIdRequest) returns (TeamTranfer);
+  rpc deleteById(DeleteTeamByIdRequest) returns (Empty);
+  rpc save(AddTeamRequest) returns (TeamTranfer);
+  rpc update(UpdateTeamRequest) returns (TeamTranfer);
+}
+
+service UserService{
+  rpc getAll(GetAllUserRequest) returns (stream UserTranfer);
+  rpc getById(GetUserByIdRequest) returns (UserTranfer);
+  rpc deleteById(DeleteUserByIdRequest) returns (Empty);
+  rpc save(AddUserRequest) returns (UserTranfer);
+  rpc update(UpdateUserRequest) returns (UserTranfer);
 }

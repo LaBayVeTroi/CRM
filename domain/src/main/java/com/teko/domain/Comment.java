@@ -1,5 +1,6 @@
 package com.teko.domain;
 
+import com.teko.proto.CommentTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -57,4 +58,38 @@ public class Comment {
     @OneToOne
     @JoinColumn(name = "event")
     private Event event;
+
+    public static Comment fromProto(CommentTranfer commentTranfer){
+        return Comment.builder()
+                .id(commentTranfer.getId())
+                .comment(commentTranfer.getComment())
+                .commentedOn(new Date(commentTranfer.getCommentedOn()))
+                .commentedBy(User.fromProto(commentTranfer.getCommentedBy()))
+                .account(Account.fromProto(commentTranfer.getAccoount()))
+                .lead(Lead.fromProto(commentTranfer.getLead()))
+                .opportunity(Opportunity.fromProto(commentTranfer.getOpportunity()))
+                .contact(Contact.fromProto(commentTranfer.getContact()))
+                .user(User.fromProto(commentTranfer.getUser()))
+                .task(Task.fromProto(commentTranfer.getTask()))
+                .invoice(Invoice.fromProto(commentTranfer.getInvoice()))
+                .event(Event.fromProto(commentTranfer.getEvent()))
+                .build();
+    }
+
+    public CommentTranfer toProto(){
+        return CommentTranfer.newBuilder()
+                .setId(this.id)
+                .setComment(this.comment)
+                .setCommentedOn(this.commentedOn.getTime())
+                .setCommentedBy(this.commentedBy.toProto())
+                .setAccoount(this.account.toProto())
+                .setLead(this.lead.toProto())
+                .setOpportunity(this.opportunity.toProto())
+                .setContact(this.contact.toProto())
+                .setUser(this.user.toProto())
+                .setTask(this.task.toProto())
+                .setInvoice(this.invoice.toProto())
+                .setEvent(this.event.toProto())
+                .build();
+    }
 }

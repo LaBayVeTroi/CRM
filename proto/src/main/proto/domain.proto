@@ -4,6 +4,9 @@ package com.teko.proto;
 
 option java_multiple_files = true;
 
+message Empty {
+}
+
 message EmailTranfer{
   int32  id = 1;
   string fromEmail = 2 ;
@@ -47,6 +50,7 @@ message AccountEmailTranfer {
   string messageSubject = 2;
   string messageBody = 3;
   string timeZone = 4;
+  int64 scheduledDateTime = 9;
   int64 scheduledLater = 5;
   int64 createdOn = 6;
   string fromEmail = 7;
@@ -97,6 +101,7 @@ message AttachmentTranfer {
 
 message CommentTranfer {
   int32 id = 1;
+  string comment = 12;
   int64 commentedOn = 2;
   UserTranfer commentedBy = 3;
   AccountTranfer accoount = 4;
@@ -247,7 +252,7 @@ message LeadTranfer {
   string website = 15;
   string description = 16;
   string accountName = 17;
-  string opportunityAmount = 18;
+  int32 opportunityAmount = 18;
   int64 createdOn = 19;
   bool isActive = 20;
   string enqueryType = 21;
@@ -259,7 +264,7 @@ message OpportunityTranfer {
   string name = 2;
   string stage = 3;
   string currency = 4;
-  string amount = 5;
+  int32 amount = 5;
   string source = 6;
   int32 probability = 7;
   int64 closedOn = 8;
@@ -313,7 +318,7 @@ message UserTranfer {
   bool isActive = 6;
   bool isAdmin = 7;
   bool staff = 8;
-  bool dateJoined = 9;
+  int64 dateJoined = 9;
   string role = 10;
   string profilePic = 11;
   bool hasSalesAccess = 12;

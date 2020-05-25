@@ -1,6 +1,7 @@
 package com.teko.domain;
 
 
+import com.teko.proto.AccountEmailTranfer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -44,4 +45,32 @@ public class AccountEmail {
     private String fromEmail;
     @Column(name = "rendered_message_body", length = 512)
     private String renderedMessageBody;
+
+    public static AccountEmail fromProto(AccountEmailTranfer accountEmailTranfer){
+        return AccountEmail.builder()
+                .id(accountEmailTranfer.getId())
+                .messageSubject(accountEmailTranfer.getMessageSubject())
+                .messageBody(accountEmailTranfer.getMessageBody())
+                .timezone(accountEmailTranfer.getTimeZone())
+                .scheduledDateTime(new Date(accountEmailTranfer.getScheduledDateTime()))
+                .scheduledLater(new Date(accountEmailTranfer.getScheduledLater()))
+                .createdOn(new Date(accountEmailTranfer.getCreatedOn()))
+                .fromEmail(accountEmailTranfer.getFromEmail())
+                .renderedMessageBody(accountEmailTranfer.getRenderedMessageBody())
+                .build();
+    }
+
+    public AccountEmailTranfer toProto(){
+        return AccountEmailTranfer.newBuilder()
+                .setId(this.id)
+                .setMessageSubject(this.messageSubject)
+                .setMessageBody(this.messageBody)
+                .setTimeZone(this.timezone)
+                .setScheduledDateTime(this.scheduledDateTime.getTime())
+                .setScheduledLater(this.scheduledLater.getTime())
+                .setCreatedOn(this.createdOn.getTime())
+                .setFromEmail(this.fromEmail)
+                .setRenderedMessageBody(this.renderedMessageBody)
+                .build();
+    }
 }

@@ -6,6 +6,7 @@ import "domain.proto";
 
 option java_multiple_files = true;
 
+//Email
 message AddEmailRequest{
   EmailTranfer email = 1;
 }
@@ -25,5 +26,462 @@ message DeleteEmailByIdRequest {
   int32 id = 1;
 }
 
-message Empty {
+//Account
+message AddAccountRequest{
+  AccountTranfer account = 1;
+}
+
+message GetAllAccountRequest {
+}
+
+message GetAccountByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateAccountRequest {
+  AccountTranfer account = 1;
+}
+
+message DeleteAccountByIdRequest {
+  int32 id = 1;
+}
+
+//AccountEmail
+message AddAccountEmailRequest{
+  AccountEmailTranfer accountEmail = 1;
+}
+
+message GetAllAccountEmailRequest {
+}
+
+message GetAccountEmailByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateAccountEmailRequest {
+  AccountEmailTranfer accountEmail = 1;
+}
+
+message DeleteAccountEmailByIdRequest {
+  int32 id = 1;
+}
+
+//Account Email Log
+message AddAccountEmailLogRequest{
+  AccountEmailLogTranfer accountEmailLog = 1;
+}
+
+message GetAllAccountEmailLogRequest {
+}
+
+message GetAccountEmailLogByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateAccountEmailLogRequest {
+  AccountEmailLogTranfer accountEmailLog = 1;
+}
+
+message DeleteAccountEmailLogByIdRequest {
+  int32 id = 1;
+}
+
+//Address
+message AddAddressRequest{
+  AddressTranfer address = 1;
+}
+
+message GetAllAddressRequest {
+}
+
+message GetAddressByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateAddressRequest {
+  AddressTranfer address = 1;
+}
+
+message DeleteAddressByIdRequest {
+  int32 id = 1;
+}
+
+//Api setting
+message AddAPISettingRequest{
+  APISettingTranfer apiSetting = 1;
+}
+
+message GetAllAPISettingRequest {
+}
+
+message GetAPISettingByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateAPISettingRequest {
+  APISettingTranfer apiSetting = 1;
+}
+
+message DeleteAPISettingByIdRequest {
+  int32 id = 1;
+}
+
+//Attachment
+message AddAttachmentRequest{
+  AttachmentTranfer attachment = 1;
+}
+
+message GetAllAttachmentRequest {
+}
+
+message GetAttachmentByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateAttachmentRequest {
+  AttachmentTranfer attachment = 1;
+}
+
+message DeleteAttachmentByIdRequest {
+  int32 id = 1;
+}
+
+//Comment
+message AddCommentRequest{
+  CommentTranfer comment = 1;
+}
+
+message GetAllCommentRequest {
+}
+
+message GetCommentByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateCommentRequest {
+  CommentTranfer comment = 1;
+}
+
+message DeleteCommentByIdRequest {
+  int32 id = 1;
+}
+
+//Comment File
+message AddCommentFileRequest{
+  CommentFileTranfer commentFile = 1;
+}
+
+message GetAllCommentFileRequest {
+}
+
+message GetCommentFileByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateCommentFileRequest {
+  CommentFileTranfer commentFile = 1;
+}
+
+message DeleteCommentFileByIdRequest {
+  int32 id = 1;
+}
+
+//Contact
+message AddContactRequest{
+  ContactTranfer contact = 1;
+}
+
+message GetAllContactRequest {
+}
+
+message GetContactByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateContactRequest {
+  ContactTranfer contact = 1;
+}
+
+message DeleteContactByIdRequest {
+  int32 id = 1;
+}
+
+// Document
+message AddDocumentRequest{
+  DocumentTranfer document = 1;
+}
+
+message GetAllDocumentRequest {
+}
+
+message GetDocumentByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateDocumentRequest {
+  DocumentTranfer document = 1;
+}
+
+message DeleteDocumentByIdRequest {
+  int32 id = 1;
+}
+
+//Event
+message AddEventRequest{
+  EventTranfer event = 1;
+}
+
+message GetAllEventRequest {
+}
+
+message GetEventByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateEventRequest {
+  EventTranfer event = 1;
+}
+
+message DeleteEventByIdRequest {
+  int32 id = 1;
+}
+
+//EventPlan
+message AddEventPlanRequest{
+  EventPlanTranfer EventPlan = 1;
+}
+
+message GetAllEventPlanRequest {
+}
+
+message GetEventPlanByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateEventPlanRequest {
+  EventPlanTranfer EventPlan = 1;
+}
+
+message DeleteEventPlanByIdRequest {
+  int32 id = 1;
+}
+
+//Google
+message AddGoogleRequest{
+  GoogleTranfer google = 1;
+}
+
+message GetAllGoogleRequest {
+}
+
+message GetGoogleByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateGoogleRequest {
+  GoogleTranfer google = 1;
+}
+
+message DeleteGoogleByIdRequest {
+  int32 id = 1;
+}
+
+//Invoice
+message AddInvoiceRequest{
+  InvoiceTranfer invoice = 1;
+}
+
+message GetAllInvoiceRequest {
+}
+
+message GetInvoiceByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateInvoiceRequest {
+  InvoiceTranfer invoice = 1;
+}
+
+message DeleteInvoiceByIdRequest {
+  int32 id = 1;
+}
+
+//Invoice History
+message AddInvoiceHistoryRequest{
+  InvoiceHistoryTranfer invoiceHistory = 1;
+}
+
+message GetAllInvoiceHistoryRequest {
+}
+
+message GetInvoiceHistoryByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateInvoiceHistoryRequest {
+  InvoiceHistoryTranfer invoiceHistory = 1;
+}
+
+message DeleteInvoiceHistoryByIdRequest {
+  int32 id = 1;
+}
+
+//Lead
+message AddLeadRequest{
+  LeadTranfer lead = 1;
+}
+
+message GetAllLeadRequest {
+}
+
+message GetLeadByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateLeadRequest {
+  LeadTranfer lead = 1;
+}
+
+message DeleteLeadByIdRequest {
+  int32 id = 1;
+}
+
+//Opportunity
+message AddOpportunityRequest{
+  OpportunityTranfer opportunity = 1;
+}
+
+message GetAllOpportunityRequest {
+}
+
+message GetOpportunityByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateOpportunityRequest {
+  OpportunityTranfer opportunity = 1;
+}
+
+message DeleteOpportunityByIdRequest {
+  int32 id = 1;
+}
+
+//Profile
+message AddProfileRequest{
+  OpportunityTranfer opportunity = 1;
+}
+
+message GetAllProfileRequest {
+}
+
+message GetProfileByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateProfileRequest {
+  ProfileTranfer profile = 1;
+}
+
+message DeleteProfileByIdRequest {
+  int32 id = 1;
+}
+
+//Reminder
+message AddReminderRequest{
+  ReminderTranfer reminder = 1;
+}
+
+message GetAllReminderRequest {
+}
+
+message GetReminderByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateReminderRequest {
+  ReminderTranfer reminder = 1;
+}
+
+message DeleteReminderByIdRequest {
+  int32 id = 1;
+}
+
+//Tag
+message AddTagRequest{
+  TagTranfer tag = 1;
+}
+
+message GetAllTagRequest {
+}
+
+message GetTagByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateTagRequest {
+  TagTranfer tag = 1;
+}
+
+message DeleteTagByIdRequest {
+  int32 id = 1;
+}
+
+//Task
+message AddTaskRequest{
+  TaskTranfer task = 1;
+}
+
+message GetAllTaskRequest {
+}
+
+message GetTaskByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateTaskRequest {
+  TaskTranfer task = 1;
+}
+
+message DeleteTaskByIdRequest {
+  int32 id = 1;
+}
+
+//Team
+message AddTeamRequest{
+  TeamTranfer team = 1;
+}
+
+message GetAllTeamRequest {
+}
+
+message GetTeamByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateTeamRequest {
+  TeamTranfer team = 1;
+}
+
+message DeleteTeamByIdRequest {
+  int32 id = 1;
+}
+
+//User
+message AddUserRequest{
+  UserTranfer user = 1;
+}
+
+message GetAllUserRequest {
+}
+
+message GetUserByIdRequest{
+  int32 id = 1;
+}
+
+message UpdateUserRequest {
+  UserTranfer user = 1;
+}
+
+message DeleteUserByIdRequest {
+  int32 id = 1;
 }
