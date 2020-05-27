@@ -1,6 +1,6 @@
 #!/bin/bash
-mvn -Dmaven.test.skip=true clean install
-java -jar ./domain/target/domain-0.0.1-SNAPSHOT.jar &
+#mvn -Dmaven.test.skip=true clean install
+java -jar ./domain/target/domain-0.0.1-SNAPSHOT-exec.jar
 java -jar ./account/target/account-0.0.1-SNAPSHOT.jar &
 java -jar ./common/target/common-0.0.1-SNAPSHOT.jar &
 #java -jar ./contact/target/contact-0.0.1-SNAPSHOT.jar &
