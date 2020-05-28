@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BaseConfiguration {
-    final String ENDPOINT = "localhost:9090";
+    final String ENDPOINT = "localhost:8093";
 
     @Bean
     Channel channel(){
