@@ -19,6 +19,8 @@
         <module>lead</module>
         <module>planner</module>
         <module>invoice</module>
+        <module>account-management</module>
+        <module>task-management</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
