@@ -15,20 +15,16 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 
 @Configuration
-@EnableJpaRepositories(
-        basePackages = "com.teko.repository",
-        entityManagerFactoryRef = "entityManager"
-)
 public class PersistenceConfig {
     @Configuration
     @Profile("default")
-    @PropertySource("classpath:persistence.properties")
+    @PropertySource("classpath:application.properties")
     static class Defaults {
     }
 
     @Configuration
     @Profile("prod")
-    @PropertySource("classpath:persistence-prod.properties")
+    @PropertySource("classpath:application-prod.properties")
     static class Prod {
     }
 

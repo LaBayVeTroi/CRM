@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages= {"com.teko"})
+@SpringBootApplication(scanBasePackages= {"com.teko","config"})
 @EnableJpaRepositories(
         basePackages = "com.teko.repository",
         entityManagerFactoryRef = "entityManager"
