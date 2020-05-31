@@ -2,13 +2,11 @@ version: "3"
 
 services:
   app:
-    image: crm
+    image: teko-crm
     build: .
     networks:
       - crm
-    container_name: crm
-    volumes:
-      - ./:/opt/var/
+    container_name: teko-crm
     depends_on:
       - mysql
   mysql:

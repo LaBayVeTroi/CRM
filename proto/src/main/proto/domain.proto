@@ -324,3 +324,29 @@ message UserTranfer {
   bool hasSalesAccess = 12;
   bool hasMarketingAccess = 13;
 }
+
+message PlannerEventTranfer {
+  int32 id = 1;
+  string name = 2;
+  string eventType = 3;
+  string contentType = 4;
+  int32 objectId = 5;
+  string parent = 6;
+  string status = 7;
+  string direction = 8;
+  int64 startDate = 9;
+  int64 closeDate = 10;
+  int32 duration = 11;
+  repeated ReminderTranfer reminders = 12;
+  string priority = 13;
+  int64 updatedOn = 14;
+  UserTranfer updatedBy = 15;
+  repeated UserTranfer attendeesUser = 16;
+  repeated ContactTranfer attendeesContact = 17;
+  repeated LeadTranfer attendeesLead = 18;
+  int64 createdOn = 19;
+  UserTranfer createdBy = 20;
+  repeated UserTranfer assignedTo = 21;
+  string description = 22;
+  bool isActive = 23;
+}

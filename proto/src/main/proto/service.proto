@@ -199,3 +199,11 @@ service UserService{
   rpc save(AddUserRequest) returns (UserTranfer);
   rpc update(UpdateUserRequest) returns (UserTranfer);
 }
+
+service PlannerEventService{
+  rpc getAll(GetAllPlannerEventRequest) returns (stream PlannerEventTranfer);
+  rpc getById(GetPlannerEventByIdRequest) returns (PlannerEventTranfer);
+  rpc deleteById(DeletePlannerEventByIdRequest) returns (Empty);
+  rpc save(AddPlannerEventRequest) returns (PlannerEventTranfer);
+  rpc update(UpdatePlannerEventRequest) returns (PlannerEventTranfer);
+}

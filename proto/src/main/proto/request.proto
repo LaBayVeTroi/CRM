@@ -485,3 +485,23 @@ message UpdateUserRequest {
 message DeleteUserByIdRequest {
   int32 id = 1;
 }
+
+//Planner Event
+message AddPlannerEventRequest{
+  PlannerEventTranfer plannerEvent = 1;
+}
+
+message GetAllPlannerEventRequest {
+}
+
+message GetPlannerEventByIdRequest{
+  int32 id = 1;
+}
+
+message UpdatePlannerEventRequest {
+  PlannerEventTranfer plannerEvent = 1;
+}
+
+message DeletePlannerEventByIdRequest {
+  int32 id = 1;
+}
