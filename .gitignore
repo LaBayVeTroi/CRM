@@ -25,7 +25,12 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
 
 ### VS Code ###
 .vscode/
+
+### mysql data ###
+mysql-data/*
+
+### build file ###
+build/*
