@@ -33,4 +33,4 @@ target/
 mysql-data/*
 
 ### build file ###
-build/*
+#build/*
