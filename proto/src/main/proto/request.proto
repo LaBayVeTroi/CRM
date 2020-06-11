@@ -1,10 +1,12 @@
 syntax = "proto3";
 
-package com.teko.proto;
+package proto;
 
 import "domain.proto";
 
 option java_multiple_files = true;
+
+option java_package = "com.teko.proto";
 
 //Email
 message AddEmailRequest{
